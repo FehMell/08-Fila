@@ -84,17 +84,30 @@ void insere()
 		return;
 	}
 
-	cout << "Digite o elemento: ";
+	cout << "Digite o elemento desejado: ";
 	cin >> novo->valor;
 	novo->prox = NULL;
 
+	if (inicio == NULL) {
+		inicio = novo;
+		fim = novo;
+	}
+	else {
+		fim->prox = novo;
+		fim = novo;
+	}
 
 }
 
 void remove()
 {
+	if (inicio == NULL) {
+		cout << "Não há elementos na fila " << endl;
+		return;
+	}
 
-
-
+	NO* aux = inicio;
+	cout << "Elemento " << inicio->valor << " foi excluido" << endl;
+	inicio = inicio->prox;
+	free(aux);
 }
-
